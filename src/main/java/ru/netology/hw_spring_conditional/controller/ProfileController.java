@@ -8,7 +8,7 @@ import ru.netology.hw_spring_conditional.systemProfile.SystemProfile;
 @RestController
 @RequestMapping("/")
 public class ProfileController {
-    private final SystemProfile profile;
+    private SystemProfile profile;
 
     public ProfileController(SystemProfile profile) {
         this.profile = profile;
