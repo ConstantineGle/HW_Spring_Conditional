@@ -27,7 +27,7 @@ class DemoApplicationTests {
     @Test
     public void contextLoadsDevapp() {
         final String expected = "Current profile is dev";
-        String url = "http://localhost:" + devapp.getMappedPort(8080);
+        String url = String.format("http://localhost:%d/profile", devapp.getMappedPort(8080));
         ResponseEntity<String> responseEntity = testRestTemplate.getForEntity(url, String.class);
         Assertions.assertEquals(expected, responseEntity.getBody());
     }
@@ -35,7 +35,7 @@ class DemoApplicationTests {
     @Test
     public void contextLoadsProdapp() {
         final String expected = "Current profile is production";
-        String url = "http://localhost:" + prodapp.getMappedPort(8081);
+        String url = String.format("http://localhost:%d/profile", prodapp.getMappedPort(8081));
         ResponseEntity<String> responseEntity = testRestTemplate.getForEntity(url, String.class);
         Assertions.assertEquals(expected, responseEntity.getBody());
     }
